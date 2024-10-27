@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+<meta charset="UTF-8">
+
+<div class="container-fluid  col-7 text-center" style="margin-top: 100px;">
+
+
+<form action="@{alunos.listar}">
+	<div class="row" data-bs-theme="dark">
+	 
+		<div class="col-9" >
+			<input type="search" class="form-control" name="termo" value="${termo}" />
+		</div>
+		<div class="col-2">
+			<input type="submit" class="btn btn-light" value="Pesquisar" />
+		</div>
+	</div>
+</form>
+<br>
+<h3><p>Lista de Pedidos</p></h3>
+<table class="table table-dark table-striped-columns">
+	<thead>
+		<tr>
+		<th>Nome</th>
+			<th>Matrícula</th>
+			<th>Curso</th>
+			<th>Turma</th>
+			<th>Tamanho</th>
+			<th>Quantidade</th>
+			
+			<th>Ações</th>
+		</tr>
+	</thead>
+		#{list items:alunos, as:'a'}
+			<tr>
+				<td>${a.nome}</td>
+				<td>${a.matricula}</td>
+				<td>${a.curso}</td>
+				<td>${a.turma}</td>
+				<td>${a.tamanho}</td>
+				<td>${a.quantidade}</td>
+				
+			
+			      <td>
+					<a href="@{Alunos.editar(a.id)}">Editar</a> |
+					<a href="@{Alunos.remover(a.id)}">Cancelar Pedido</a> 
+						
+				</td>
+			</tr>
+		#{/list}
+	<tbody>
+	
+	</tbody>
+</table>
+
+<a class="btn btn-success" href="@{Alunos.form}">Novo Pedido</a>

@@ -1,0 +1,60 @@
+#{extends 'main.html' /}
+<meta charset=UTF-8>
+
+<div class="container-fluid  col-7 text-center" style="margin-top: 100px;">
+<h3><p>Pedidos de Fardamento - Técnico Integrado/IFJC</p></h3>
+<p>Peça já o seu fardamento!</p>
+
+<form class="text-start mt-4"  action="@{Alunos.salvar}">
+
+	<input type="hidden" name="aluno.id" value="${a?.id}" />
+	<div class="mb-3">
+		<label class="form-label">Nome completo:</label>
+		<input type="text" class="form-control" name="aluno.nome" value="${a?.nome}"placeholder="Insira aqui seu nome completo"  required/>
+	</div>
+
+	<div class="mb-3">
+		<label class="form-label">Matricula:</label>
+		<input type="text" class="form-control" name="aluno.matricula" value="${a?.matricula}" placeholder="Insira aqui a matricula" required/>
+	</div>
+	
+	<div class="mb-3">
+		<label class="form-label">Curso:</label>
+		    <select id="cursoID" name="aluno.curso"">
+
+            <option value="Administração" name="aluno.curso">Administração</option>
+            <option value="Eletrotécnica" name="aluno.curso">Eletrotécnica</option>
+            <option value="Informática" name="aluno.curso">Informática</option>
+            <option value="Outro" name="aluno.curso">Outro</option>
+        </select>
+	</div>
+	<div class="mb-3">
+		<label class="form-label">Turma:</label>
+		<input type="text" class="form-control" name="aluno.turma" value="${a?.turma}" placeholder="Insira aqui sua turma " required/>
+	</div>
+<div class="form-check">
+
+<p>Tamanho:</p>
+
+  <input type="radio" id="tamanhoID" name="aluno.tamanho" value="p">
+  <label for="p">P</label><br>
+   <input type="radio" id="tamanhoID" name="aluno.tamanho" value="m">
+  <label for="m">M</label><br>
+   <input type="radio" id="tamanhoID" name="aluno.tamanho" value="g">
+  <label for="g">G</label><br>
+   <input type="radio" id="tamanhoID" name="aluno.tamanho" value="gg">
+  <label for="gg">GG</label><br>
+</div>
+
+ <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidadeID" name="aluno.quantidade" min="1" required><br><br>
+	
+	
+	<h6><p>Valor do Fardamento: 45,00R$</p></h6>
+	<div class="mb-3">
+		<input type="submit" class="btn btn-outline-success" />
+	</div>
+
+</form>
+
+
